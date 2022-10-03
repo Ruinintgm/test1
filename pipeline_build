@@ -10,13 +10,13 @@ pipeline {
       stage("Stage1"){
         steps {
           echo '==========Building==========='
-          sh 'docker build -t ipscript .'
+          sh 'docker build -t ipscript2 .'
           }
       }
       stage("Stage2"){
         steps {
           echo '==========Running============'
-          sh 'docker run -d ipscript'
+          sh 'docker run -d ipscript2'
         }
       }
     }
