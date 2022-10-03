@@ -9,14 +9,18 @@ pipeline {
     stages {
       stage("Stage1"){
         steps {
-          echo '==========Building==========='
-          sh 'docker build -t ipscript2 .'
+          echo '==========Deliting==========='
+          sh 'docker stop pisyakaka'
+          sh 'docker rm pisyakaka'
+          sh 'docker rmi ipscript2'
           }
       }
       stage("Stage2"){
         steps {
-          echo '==========Running============'
-          sh 'docker run -d ipscript2'
+
+          echo '==========Build/Running============'
+          sh 'docker build -t ipscript2 .'
+          sh 'docker run -d --name pisyakaka ipscript2'
         }
       }
     }
